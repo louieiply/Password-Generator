@@ -15,15 +15,15 @@ function generatePassword(){
   alert("Following Password criteria:\n-Special Chararcters\n-Uppercase letters\n-Lowercase letters\n-numric letters");
   while(!confirmed){
     var condition = false;
-    var options = new Array(); 
+    var options = new Map(); 
     var symbols = confirm("Password include Special Characters?"); 
-    options.push(symbols);
+    options.set("symbols",symbols);
     var upper = confirm("Password include Uppercase letters ?");
-    options.push(upper);
+    options.set("upper",upper);
     var lower = confirm("Password include Lowercase letters ?");
-    options.push(lower);
+    options.set("lower",lower);
     var numric = confirm("Password include numric letters ?");
-    options.push(numric);
+    options.set("numric",numric);
     if(length === 0){
       while(length < 8 || length > 128){
         length = prompt("Desired Password length (8-128 characters)");
@@ -41,18 +41,15 @@ function generatePassword(){
     if(condition){
       var text = "Do you confirm the following list of requirements:\n-Symbols: "+ symbols +"\n-Uppercase Letter: " + upper + "\n-Lowercase Letter: " +lower+ "\n-Numric: "+numric;
       confirmed = confirm(text);
-      alert("comfirmed: "+ confirmed);
     }
     else{
       alert("Please choose at least one of the Password criteria.");
     }
   }
+  c
 
 }
 
-function filter(symbols,upper,lower,numric){
-  
-}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
