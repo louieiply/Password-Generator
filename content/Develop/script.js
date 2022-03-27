@@ -59,16 +59,18 @@ function generatePassword(){
     console.log(item);
     switch (item) {
       case "symbols":
-        //33,35,36,37,38,40,42,94 charcode
+        //33,35,36,37,38,42,64,94 charcode
         var ran = Math.floor(Math.random() * 8);
         if(ran === 0 ){
           ran = 33;
         }
         else if(ran == 5){
-          ran = 40;
+
+          ran = 42;
         }
         else if(ran == 6){
-          ran == 42;
+          
+          ran = 64;
         }
         else{
           ran = ran == 7 ? 94 : ran + 34;
