@@ -46,7 +46,13 @@ function generatePassword(){
       alert("Please choose at least one of the Password criteria.");
     }
   }
-  c
+  var chosen_criteria = new Array();
+  options.forEach (function(value, key) {
+    if(value == true){
+      chosen_criteria
+    }
+  })
+    
 
 }
 
