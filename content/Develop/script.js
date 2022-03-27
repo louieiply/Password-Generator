@@ -10,6 +10,7 @@ function writePassword() {
 
 }
 function generatePassword(){
+  var password = "";
   var confirmed = false;
   var length = 0;
   alert("Following Password criteria:\n-Special Chararcters\n-Uppercase letters\n-Lowercase letters\n-numric letters");
@@ -48,12 +49,51 @@ function generatePassword(){
   }
   var chosen_criteria = new Array();
   options.forEach (function(value, key) {
-    if(value == true){
-      chosen_criteria
+    if(value === true){
+      chosen_criteria.push(key);
     }
   })
+  for(i = 0; i < length; i++){
+    var index = Math.floor((Math.random() * (chosen_criteria.length)));
+    var item = chosen_criteria[index];
+    console.log(item);
+    switch (item) {
+      case "symbols":
+        //33,35,36,37,38,40,42,94 charcode
+        var ran = Math.floor(Math.random() * 8);
+        if(ran === 0 ){
+          ran = 33;
+        }
+        else if(ran == 5){
+          ran = 40;
+        }
+        else if(ran == 6){
+          ran == 42;
+        }
+        else{
+          ran = ran == 7 ? 94 : ran + 34;
+        }
+        password +=  String.fromCharCode(ran);
+        break;
+      case "upper":
+        //65-90 charcode
+        var ran = Math.floor(Math.random() * 26) + 65;
+        password +=  String.fromCharCode(ran);
+        break;
+      case "lower":
+        //97-122 charcode
+        var ran = Math.floor(Math.random() * 26) + 97;
+        password +=  String.fromCharCode(ran);
+        break;
+      case "numric":
+        //48-57 charcode
+        var ran = Math.floor(Math.random() * 10) + 48;
+        password +=  String.fromCharCode(ran);
+        break;
+    }
     
-
+  }
+  return password;
 }
 
 
